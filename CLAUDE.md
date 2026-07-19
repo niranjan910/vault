@@ -10,6 +10,7 @@
 ## Commands
 
 <!-- TODO: replace with the real build/test/lint commands once the stack is filled in -->
+
 - Build: `<fill in>`
 - Test: `<fill in>`
 - Lint: `<fill in>`
@@ -18,5 +19,22 @@
 
 <!-- TODO: your actual conventions go here -->
 
+## Current state / known gaps
+
+**Closed this session:**
+
+- vault is a git repo; first commit `cc89220`, pushed to [niranjan910/vault](https://github.com/niranjan910/vault) (private).
+- `llm-council/` cloned from karpathy/llm-council; nested `.git` removed so it's a plain subtree, not an embedded repo.
+- `.gitignore` created at the vault root.
+- `.claude/hooks/format-on-write.sh` fixed — now uses Python instead of `jq` for parsing hook input, so it no longer silently fails when `jq` isn't installed.
+- `.claude/skills/frontend-design/LICENSE.txt` added (Apache 2.0).
+
+**Still open — needs a person:**
+
+- `llm-council/.env` needs `OPENROUTER_API_KEY` before the council app will run.
+- The two `<!-- TODO -->` blocks above (what vault is, real build/test/lint commands and stack) still need filling in.
+- `.claude/settings.local.json` is gitignored by design — it's per-machine, so each clone needs its own permission approvals; it won't carry over from this commit.
+
 ---
+
 This file is mostly scaffolding right now — it exists so Claude Code at least knows the repo has a nested subproject with different conventions before it goes looking. Fill in the TODOs (or tell Claude your stack and real commands) whenever you're ready.
