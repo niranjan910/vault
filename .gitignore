@@ -1,0 +1,9 @@
+llm-council/frontend/node_modules/
+llm-council/.venv/
+llm-council/data/conversations/
+llm-council/.env
+*.pyc
+__pycache__/
+.DS_Store
+Thumbs.db
+.claude/settings.local.json
