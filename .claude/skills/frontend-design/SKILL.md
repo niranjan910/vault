@@ -56,8 +56,35 @@ Keep the register conversational and tuned: plain verbs, sentence case, no fille
 
 ## Project-specific conventions for this repo
 
-*(Everything above this line is Anthropic's official frontend-design skill, Apache 2.0, unmodified. This section is local to vault.)*
+_(Everything above this line is Anthropic's official frontend-design skill, Apache 2.0, unmodified. This section is local to vault.)_
 
 - Use the design tokens already defined in this repo instead of one-off hex values or arbitrary spacing values. See `references/tokens.md` for the full reference (add this once tokens are actually documented).
 - Default to the existing type scale and font pairing; don't introduce a new font without a reason tied to a specific brief.
 - Before shipping a new component, check it against an existing similar one (a card, a form, a modal) for consistent spacing and corner radius.
+
+## Component, responsive, accessibility & motion conventions
+
+**Component consistency**
+
+- Before adding any new spacing, corner-radius, or color value, check whether an existing token or component already defines it — new one-offs need a reason, not just convenience.
+- Cards, modals, and form fields should share the same spacing scale and corner radius unless there's a deliberate reason for one to differ.
+- When two components do visually similar things (e.g. two kinds of cards), diff them side by side before shipping a third variant — consolidate instead of forking.
+
+**Responsive design**
+
+- Design mobile-first: base styles target the smallest breakpoint, then add complexity upward with `min-width` media queries — not the other way around.
+- Use the project's existing breakpoint scale; don't invent a new breakpoint for one component.
+- Test any new layout at the narrowest supported width before calling it done, not just at desktop width.
+
+**Accessibility baseline**
+
+- Body text must meet at least 4.5:1 contrast against its background (3:1 for large text/18px+ bold); check new color pairings, don't assume.
+- Every interactive element needs a visible focus state — never remove `:focus` outlines without replacing them with an equally visible alternative.
+- Icon-only buttons and inputs without visible labels need an `aria-label` (or equivalent) describing what they do, not just what they look like.
+
+**Animation & motion**
+
+- Use motion to clarify a state change (something appeared, something moved, something failed) — not as decoration on top of a static screen.
+- Default to short, subtle transitions (150–250ms) over long or bouncy ones; motion should feel instant, not performed.
+- Respect `prefers-reduced-motion` — anything beyond a simple opacity/color transition needs a reduced-motion fallback.
+- When in doubt, leave it static. An unnecessary animation is a worse default than no animation.

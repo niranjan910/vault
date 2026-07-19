@@ -1,6 +1,6 @@
 # vault
 
-<!-- TODO: one or two lines on what vault itself actually is/does -->
+Personal Claude Code workspace focused on frontend development, UI/UX design, and SEO for websites
 
 ## Structure
 
@@ -17,7 +17,7 @@
 
 ## Code style
 
-<!-- TODO: your actual conventions go here -->
+Write semantic HTML always. CSS follows mobile-first. No inline styles. Prefer CSS custom properties over hardcoded values.
 
 ## Current state / known gaps
 
@@ -32,7 +32,7 @@
 **Still open — needs a person:**
 
 - `llm-council/.env` needs `OPENROUTER_API_KEY` before the council app will run.
-- The two `<!-- TODO -->` blocks above (what vault is, real build/test/lint commands and stack) still need filling in.
+- The `<!-- TODO -->` block under Commands (real build/test/lint commands for vault itself) still needs filling in. Code style now has a starting set of conventions but isn't exhaustive.
 - `.claude/settings.local.json` is gitignored by design — it's per-machine, so each clone needs its own permission approvals; it won't carry over from this commit.
 
 ---
