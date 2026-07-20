@@ -7,6 +7,21 @@ Personal Claude Code workspace focused on frontend development, UI/UX design, an
 - `llm-council/` — a nested clone of [karpathy/llm-council](https://github.com/karpathy/llm-council), a multi-LLM deliberation tool (FastAPI backend + React frontend). It's a separate application with its own stack and its own `llm-council/CLAUDE.md` — treat it as a subtree, not part of vault's main codebase. See `.claude/skills/llm-council-dev/SKILL.md` for how to work in it.
 - `.claude/` — skills, commands, agents, and hooks live here. Each file documents itself via its `description` frontmatter — check there before assuming a workflow doesn't exist yet.
 
+## Connected repos
+
+Repos that symlink their .claude/skills/ and .claude/commands/ from this vault. Updating a skill here automatically updates every repo that symlinks it.
+
+| Repo | Path | Stack | Skills from vault | Notes |
+|---|---|---|---|---|
+| brain | d:/brain | Obsidian markdown, no build | frontend-design, seo, ux-patterns | Also has brain-specific skills: brain-agent, /ingest, /brain-audit, /connect |
+| StudynLearn | d:/StudynLearn | Static PHP, Vercel, Bootstrap 5.3.3, vanilla JS | frontend-design, seo, ux-patterns | Source of truth is brain.md, gitdoc auto-commits on save |
+
+## Adding a new repo
+
+1. Open the new repo in VS Code with Claude Code
+2. Paste the vault connection prompt from .claude/commands/ (or ask Claude to connect it to d:/Vault)
+3. Add a row to this table
+
 ## Commands
 
 <!-- TODO: replace with the real build/test/lint commands once the stack is filled in -->
