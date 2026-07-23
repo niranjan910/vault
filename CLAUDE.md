@@ -15,6 +15,7 @@ Repos that symlink their .claude/skills/ and .claude/commands/ from this vault. 
 |---|---|---|---|---|
 | brain | d:/brain | Obsidian markdown, no build | frontend-design, seo, ux-patterns | Also has brain-specific skills: brain-agent, /ingest, /brain-audit, /connect |
 | StudynLearn | d:/StudynLearn | Static PHP, Vercel, Bootstrap 5.3.3, vanilla JS | frontend-design, seo, ux-patterns | Source of truth is brain.md, gitdoc auto-commits on save |
+| SmartSchool Experience center | d:/SmartSchool Experience center | Design/wireframes only, no app code yet | frontend-design, seo, ux-patterns | Own repo: [niranjan910/SmartSchool-Experience-Center](https://github.com/niranjan910/SmartSchool-Experience-Center) (private). Linked as junctions/hard links, not symlinks — this machine has no symlink privilege |
 
 ## Adding a new repo
 
