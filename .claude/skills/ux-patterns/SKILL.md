@@ -36,6 +36,12 @@ description: UX design patterns and interaction conventions for this repo. Use f
 - Transitions should confirm an action happened (a save, a toggle, an add-to-cart) — feedback within ~100ms of the action, even if the real work continues in the background.
 - Don't animate for its own sake; every transition should answer "what changed, and does the user need to see that."
 
+## Respecting deliberate decisions
+
+- If the owner has explicitly chosen an option after being told its tradeoffs (a heavier but more polished interaction, a dependency cost, a performance hit) — treat that as a settled, deliberate decision, not an oversight to "fix" later against generic best-practice instincts.
+- Don't unilaterally revert or simplify a confirmed choice for performance/simplicity "hygiene" reasons; if a real problem surfaces later, raise it and let them decide again, the same way the original choice was made.
+- The same applies to a previously rejected pattern (a decorative effect they had you remove, a motion style they said no to): don't reintroduce it broadly just because a new, narrower instance is being requested elsewhere — scope new asks to exactly what was requested instead of generalizing a past rejection into new work.
+
 ## When not to add complexity
 
 - Before adding a new UI element (a filter, a toggle, a settings panel), ask what you could remove instead — most screens get worse from addition, not better.
