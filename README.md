@@ -6,7 +6,7 @@ Personal Claude Code workspace, not a traditional code repo. This is where `.cla
 
 **`.claude/`**
 
-- Skills: `frontend-design` (UI conventions), `seo` (on-page/technical SEO conventions), `ux-patterns` (UX design patterns), `llm-council-dev` (how to run/extend the council app), `playwright-e2e` (E2E test conventions), `stripe-webhook-dev` (webhook handler conventions), `workflows` (CI/CD conventions), `responsive-craft` (audit/build/preview responsive layouts — imported, see below)
+- Skills: `frontend-design` (UI conventions), `seo` (on-page/technical SEO conventions), `ux-patterns` (UX design patterns), `llm-council-dev` (how to run/extend the council app), `playwright-e2e` (E2E test conventions), `stripe-webhook-dev` (webhook handler conventions), `workflows` (CI/CD conventions), `responsive-craft` (audit/build/preview responsive layouts — imported, see below), `vercel-react-best-practices` and `wcag-audit-patterns` (imported, pinned — see `registry/skills.json`)
 - Commands: `/commit` (stage + commit), `/skill-loop` (iterate on a skill until it triggers and works), `/sync-types` (placeholder for a type-codegen sync, not wired up yet), `/audit` (manual accessibility/SEO/performance/responsive audit of a URL or file)
 - Agent: `code-reviewer` — read-only review subagent (correctness → security → style), with its own persistent memory file separate from this CLAUDE.md
 - Hook: `format-on-write.sh` — runs prettier after every Write/Edit on `.ts/.tsx/.js/.jsx/.json/.css/.md`
@@ -69,3 +69,7 @@ One more per-machine thing: `.claude/settings.local.json` is gitignored (persona
 CLAUDE.md's remaining open TODO:
 
 - Real build/test/lint commands for vault itself — none defined (only `llm-council` has its own, separate stack). Vault's purpose and a starting code-style convention set are now filled in.
+
+## Skill registry
+
+`registry/skills.json` records the source repo, pinned commit, licence and active/reference-only status of every imported skill, and `registry/README.md` explains how to vet, add, update and roll back a skill. Reference-only copies live in `skill-packs/` and stay inactive.

@@ -1,0 +1,176 @@
+{
+  "$comment": "Provenance + activation registry. Manual edits only; nothing reads this automatically. See registry/README.md.",
+  "schema": 1,
+  "verified": "2026-10-16",
+  "skills": [
+    {
+      "id": "vercel-react-best-practices",
+      "name": "Vercel React Best Practices",
+      "upstream": "vercel-labs/agent-skills",
+      "url": "https://github.com/vercel-labs/agent-skills",
+      "upstreamPath": "skills/react-best-practices",
+      "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "license": "MIT (declared in SKILL.md frontmatter; upstream repo has no LICENSE file, so no license text is bundled)",
+      "attribution": ".claude/skills/vercel-react-best-practices/UPSTREAM.md",
+      "category": "frontend-performance",
+      "purpose": "70 prioritized React/Next.js performance rules (waterfalls, bundle size, rendering, server components).",
+      "trigger": "Writing, reviewing or refactoring React/Next.js code; data fetching, bundle or performance work.",
+      "installType": "skill-copy",
+      "dependencies": [],
+      "status": "active",
+      "path": ".claude/skills/vercel-react-best-practices",
+      "modified": false,
+      "conflicts": "No overlap with frontend-design (visual) or seo (page speed at HTML/CWV level). Rules target current Next.js; check against the Portfolio's Next 14.2.5 / React 18.3.1 before applying any rule that names a newer API."
+    },
+    {
+      "id": "wcag-audit-patterns",
+      "name": "WCAG Audit Patterns",
+      "upstream": "wshobson/agents",
+      "url": "https://github.com/wshobson/agents",
+      "upstreamPath": "plugins/accessibility-compliance/skills/wcag-audit-patterns",
+      "commit": "044b4b21f083948e69ec878a7b07c8d0951a6ffa",
+      "license": "MIT",
+      "attribution": ".claude/skills/wcag-audit-patterns/LICENSE + UPSTREAM.md",
+      "category": "accessibility",
+      "purpose": "WCAG 2.2 audit method: automated + manual testing, remediation patterns.",
+      "trigger": "Auditing a site for accessibility, fixing WCAG violations, building accessible components.",
+      "installType": "skill-copy",
+      "dependencies": [
+        "optional, only if the user runs them: @axe-core/cli, pa11y, lighthouse (shown as doc examples, never auto-run)"
+      ],
+      "status": "active",
+      "path": ".claude/skills/wcag-audit-patterns",
+      "modified": false,
+      "conflicts": "Complements the /audit command and ux-patterns (neither has a WCAG checklist). The upstream ui-design plugin has its own accessibility-compliance skill; that one is not imported."
+    },
+    {
+      "id": "vercel-composition-patterns",
+      "name": "Vercel Composition Patterns",
+      "upstream": "vercel-labs/agent-skills",
+      "url": "https://github.com/vercel-labs/agent-skills",
+      "upstreamPath": "skills/composition-patterns",
+      "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "license": "MIT (SKILL.md frontmatter; no repo LICENSE file)",
+      "category": "frontend-architecture",
+      "purpose": "React component composition (compound components, avoiding boolean-prop sprawl).",
+      "trigger": "Refactoring component APIs.",
+      "installType": "reference",
+      "dependencies": [],
+      "status": "reference-only",
+      "path": "skill-packs/vercel-agent-skills/skills/composition-patterns",
+      "conflicts": "Narrow; held back to keep the first pass small."
+    },
+    {
+      "id": "web-design-guidelines",
+      "name": "Web Interface Guidelines",
+      "upstream": "vercel-labs/agent-skills",
+      "url": "https://github.com/vercel-labs/agent-skills",
+      "upstreamPath": "skills/web-design-guidelines",
+      "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "license": "MIT (no repo LICENSE file)",
+      "category": "ui-review",
+      "purpose": "UI code review against Vercel's web interface guidelines.",
+      "installType": "reference",
+      "dependencies": [
+        "fetches its rules from raw.githubusercontent.com on every run"
+      ],
+      "status": "reference-only",
+      "path": "skill-packs/vercel-agent-skills/skills/web-design-guidelines",
+      "conflicts": "Not activated: it pulls instructions from a mutable remote URL at run time, so its behaviour is neither pinned nor reviewable. Vendor the fetched file at a pinned commit before activating."
+    },
+    {
+      "id": "playwright-cli",
+      "name": "playwright-cli",
+      "upstream": "microsoft/playwright-cli",
+      "url": "https://github.com/microsoft/playwright-cli",
+      "upstreamPath": "skills/playwright-cli",
+      "commit": "b85c7a736bb473bf55b584e54a09ffa698d6d871",
+      "license": "Apache-2.0",
+      "attribution": "skill-packs/microsoft-playwright-cli/LICENSE",
+      "category": "browser-automation",
+      "purpose": "Drive a real browser from the shell (snapshot, click, screenshot, trace) for live verification.",
+      "installType": "reference (needs the @playwright/cli npm package, not installed)",
+      "dependencies": ["@playwright/cli (npm, Node >=18)", "browser binaries"],
+      "status": "reference-only",
+      "path": "skill-packs/microsoft-playwright-cli/skills/playwright-cli",
+      "conflicts": "Overlaps playwright-e2e only on the Playwright name: playwright-e2e is about writing test files, this is interactive browsing. Its frontmatter pre-approves Bash(playwright-cli:*) and Bash(npx playwright:*), which widens permissions, so activation needs an explicit decision and an installed CLI."
+    },
+    {
+      "id": "insecure-defaults",
+      "name": "Insecure Defaults",
+      "upstream": "trailofbits/skills",
+      "url": "https://github.com/trailofbits/skills",
+      "upstreamPath": "plugins/insecure-defaults",
+      "commit": "5c99c03fb8a9ea568432ecbcba5d86e9f4ac2bf0",
+      "license": "CC-BY-SA-4.0 (share-alike)",
+      "attribution": "skill-packs/trailofbits-skills/LICENSE",
+      "category": "security",
+      "purpose": "Finds fail-open defaults and hardcoded secrets.",
+      "installType": "reference (plugin layout; tests/ and workflows/ dropped on import because they hold runnable scripts)",
+      "dependencies": [],
+      "status": "reference-only",
+      "path": "skill-packs/trailofbits-skills/plugins/insecure-defaults",
+      "conflicts": "Share-alike licence: activating or adapting it makes the derived text CC-BY-SA, which needs a decision before it spreads to junctioned repos."
+    },
+    {
+      "id": "sharp-edges",
+      "name": "Sharp Edges",
+      "upstream": "trailofbits/skills",
+      "url": "https://github.com/trailofbits/skills",
+      "upstreamPath": "plugins/sharp-edges",
+      "commit": "5c99c03fb8a9ea568432ecbcba5d86e9f4ac2bf0",
+      "license": "CC-BY-SA-4.0 (share-alike)",
+      "attribution": "skill-packs/trailofbits-skills/LICENSE",
+      "category": "security",
+      "purpose": "Reviews API and config designs for footguns. Read-only tools.",
+      "installType": "reference",
+      "dependencies": [],
+      "status": "reference-only",
+      "path": "skill-packs/trailofbits-skills/plugins/sharp-edges",
+      "conflicts": "Same licence note as insecure-defaults. Aimed at crypto/API ergonomics, little use for static sites."
+    },
+    {
+      "id": "ui-design-plugin",
+      "name": "wshobson ui-design plugin (9 skills)",
+      "upstream": "wshobson/agents",
+      "url": "https://github.com/wshobson/agents",
+      "upstreamPath": "plugins/ui-design",
+      "commit": "044b4b21f083948e69ec878a7b07c8d0951a6ffa",
+      "license": "MIT",
+      "attribution": "skill-packs/wshobson-agents/LICENSE",
+      "category": "ui-design",
+      "purpose": "Design-system, interaction, responsive and visual-foundation skills.",
+      "installType": "reference",
+      "dependencies": [],
+      "status": "reference-only",
+      "path": "skill-packs/wshobson-agents/plugins/ui-design",
+      "conflicts": "responsive-design duplicates responsive-craft; visual-design-foundations and interaction-design overlap frontend-design and ux-patterns. Mine for ideas, do not activate."
+    }
+  ],
+  "rejected": [
+    {
+      "upstream": "affaan-m/ECC",
+      "commit": "76aaa77df6adc5b889e689007bf99b9a4f74af34",
+      "verdict": "REJECT (wholesale)",
+      "reason": "58 MB bundle with install.sh/install.ps1, hooks/, .mcp.json and many tool-config dirs; it installs itself and registers hooks. Pick single skills by hand if needed. Several ECC skills already appear in the user-level skill list, so they are not Vault's to add."
+    },
+    {
+      "upstream": "supabase/agent-skills",
+      "commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "verdict": "REJECT (not relevant)",
+      "reason": "Supabase and Postgres only; no connected repo uses Supabase. Ships .mcp.json."
+    },
+    {
+      "upstream": "anthropics/skills",
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "verdict": "DUPLICATE",
+      "reason": "frontend-design already exists locally and webapp-testing overlaps playwright-e2e. No repo-level licence (terms are per skill, some proprietary). Many document skills are already available as anthropic-skills:* in the user setup."
+    },
+    {
+      "upstream": "github/awesome-copilot",
+      "commit": "cb64ad12e32737ae764becd6885462e9b4c7cb00",
+      "verdict": "REFERENCE ONLY (not cloned)",
+      "reason": "130 MB collection of Copilot-flavoured agents, instructions and hooks. Browse upstream for ideas; nothing imported."
+    }
+  ]
+}

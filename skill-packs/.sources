@@ -6,3 +6,7 @@ blader/humanizer 225a6f3
 Graphify-Labs/graphify 10130e7
 addyosmani/agent-skills aeac41d
 pbakaus/impeccable 8a0e198
+vercel-labs/agent-skills 063bee9 (subset: composition-patterns, web-design-guidelines; react-best-practices is active)
+wshobson/agents 044b4b2 (subset: plugins/ui-design; wcag-audit-patterns is active)
+microsoft/playwright-cli b85c7a7 (subset: skills/playwright-cli)
+trailofbits/skills 5c99c03 (subset: insecure-defaults, sharp-edges; CC-BY-SA-4.0)
