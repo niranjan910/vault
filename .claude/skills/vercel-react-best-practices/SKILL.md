@@ -11,6 +11,25 @@ metadata:
 
 Comprehensive performance optimization guide for React and Next.js applications, maintained by Vercel. Contains 70 rules across 8 categories, prioritized by impact to guide automated refactoring and code generation.
 
+## Compatibility preflight (local addition, not upstream)
+
+The rules below assume a recent React/Next.js. Before recommending any API, do this:
+
+1. Read the target project's `package.json` and, if present, the installed `node_modules/react/package.json` and `node_modules/next/package.json`. Installed versions win over ranges.
+2. Check the API against this table (sources: react.dev React 19 and 19.2 release posts; nextjs.org `after` version history). If the version is below the minimum, do not recommend it as a direct replacement; use the alternative or skip the rule.
+3. If versions cannot be determined, say so and mark the API-specific advice "unverified" rather than assuming.
+4. Respect deliberate choices already in the code (for example an intentional `useEffect` pattern or a pinned version). Report the rule as an option, do not rewrite.
+
+| API (rule) | Minimum | If below minimum |
+|---|---|---|
+| `<Activity>` (`rendering-activity`) | React 19.2 | Conditional render, or CSS `hidden` to keep DOM and state |
+| `useEffectEvent` (`advanced-*` rules) | React 19.2 | Latest-ref pattern (`advanced-use-latest`, `advanced-event-handler-refs`) |
+| `use()` (`async-suspense-boundaries`) | React 19 | `await` in a Server Component, or a data library such as SWR |
+| `prefetchDNS`/`preconnect`/`preload`/`preinit` from `react-dom` (`rendering-resource-hints`) | React 19 | `<link rel="preconnect|preload">` in the document head or Next.js metadata/`next/font` |
+| `after()` from `next/server` (`server-after-nonblocking`) | Next.js 15.1 (`unstable_after` in 15.0 rc; stable only from 15.1) | Fire-and-forget in the route handler only where the platform allows it, otherwise skip |
+
+Other rules (`rerender-*`, `js-*`, `bundle-*`, SWR, `next/dynamic`) do not depend on these minimums. `optimizePackageImports` needs Next.js 13.5+. `React.cache` and Server Component APIs depend on App Router; confirm against the project's Next.js docs if unsure. `AGENTS.md` and `rules/` are unmodified upstream text and do not carry these guards, so this preflight governs them.
+
 ## When to Apply
 
 Reference these guidelines when:

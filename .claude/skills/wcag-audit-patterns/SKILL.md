@@ -7,6 +7,10 @@ description: Conduct WCAG 2.2 accessibility audits with automated testing, manua
 
 Comprehensive guide to auditing web content against WCAG 2.2 guidelines with actionable remediation strategies.
 
+## Scope of an audit (local addition, not upstream)
+
+Automated accessibility checks and limited manual reviews do not establish WCAG conformance or legal certification. Report test coverage, untested criteria, and required manual verification.
+
 ## When to Use This Skill
 
 - Conducting accessibility audits
